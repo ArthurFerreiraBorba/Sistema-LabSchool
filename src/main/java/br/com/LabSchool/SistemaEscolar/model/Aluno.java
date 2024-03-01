@@ -14,7 +14,8 @@ public class Aluno {
 
     @Setter(AccessLevel.NONE) private int id;
     private String nome;
-    private String dataNascimento;
+    private String descricao;
+    private int cargaHoraria;
 
     public static Aluno adicionarAlunos(Aluno aluno) {
         aluno.id = proximoId++;
