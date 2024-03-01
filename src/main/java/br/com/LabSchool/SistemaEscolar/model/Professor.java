@@ -7,18 +7,18 @@ import lombok.Setter;
 import java.util.ArrayList;
 
 @Data
-public class Aluno {
-
+public class Professor {
+    
     private static int proximoId = 1;
-    private static ArrayList<Aluno> listaAlunos = new ArrayList<>();
+    private static ArrayList<Professor> listaProfessores = new ArrayList<>();
 
     @Setter(AccessLevel.NONE) private int id;
     private String nome;
     private String dataNascimento;
 
-    public static Aluno adicionarAlunos(Aluno aluno) {
-        aluno.id = proximoId++;
-        listaAlunos.add(aluno);
-        return aluno;
+    public static Professor adicionarProfessor(Professor professor) {
+        professor.id = proximoId++;
+        listaProfessores.add(professor);
+        return professor;
     }
 }
