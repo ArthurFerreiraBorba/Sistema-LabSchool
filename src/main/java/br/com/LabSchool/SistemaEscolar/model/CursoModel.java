@@ -15,10 +15,10 @@ public class CursoModel {
     @Getter
     private static ArrayList<br.com.LabSchool.SistemaEscolar.model.CursoModel> listaCursos = new ArrayList<>();
 
-    @Setter(AccessLevel.NONE)
-    private int id;
+    @Setter(AccessLevel.NONE) private int id;
     private String nome;
-    private LocalDate dataNascimento;
+    private String descricao;
+    private int cargaHoraria;
 
     public static CursoModel adicionarCurso(br.com.LabSchool.SistemaEscolar.model.CursoModel curso) {
         curso.id = proximoId++;

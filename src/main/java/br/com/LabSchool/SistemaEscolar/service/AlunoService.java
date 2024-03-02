@@ -21,7 +21,7 @@ public class AlunoService {
     }
 
     private static boolean verificarAluno(AlunoModel aluno) throws Exception {
-        if (StringUtils.hasText(aluno.getNome())) {
+        if (!StringUtils.hasText(aluno.getNome())) {
             throw new Exception("Nome é obrigatorio");
         }
           return true;
