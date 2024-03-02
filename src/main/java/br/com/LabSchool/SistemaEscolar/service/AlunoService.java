@@ -1,6 +1,7 @@
 package br.com.LabSchool.SistemaEscolar.service;
 
 import br.com.LabSchool.SistemaEscolar.model.AlunoModel;
+import br.com.LabSchool.SistemaEscolar.model.CursoModel;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -18,6 +19,10 @@ public class AlunoService {
 
     public ArrayList<AlunoModel> verTodosAlunos() {
         return AlunoModel.getListaAlunos();
+    }
+
+    public AlunoModel buscarAlunoId(int id) throws Exception {
+        return AlunoModel.buscarAlunoId(id);
     }
 
     private static boolean verificarAluno(AlunoModel aluno) throws Exception {

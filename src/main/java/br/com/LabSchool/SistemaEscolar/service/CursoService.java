@@ -10,6 +10,12 @@ import java.util.ArrayList;
 @Service
 public class CursoService {
 
+    private final AlunoService alunoService;
+
+    public CursoService(AlunoService alunoService) {
+        this.alunoService = alunoService;
+    }
+
     public CursoModel cadastrarCurso(CursoModel curso) throws Exception {
         if (verificarCurso(curso)) {
             return CursoModel.adicionarCurso(curso);
@@ -28,9 +34,13 @@ public class CursoService {
           return true;
     }
 
+    private CursoModel buscarCursoId(int id) throws Exception {
+        return CursoModel.buscarCursoId(id);
+    }
+
     public boolean adicionarAlunoCurso(int id, int idAluno) throws Exception {
-        AlunoModel aluno = AlunoModel.buscarAlunoId(idAluno);
-        CursoModel curso = CursoModel.buscarCursoId(id);
+        AlunoModel aluno = alunoService.buscarAlunoId(idAluno);
+        CursoModel curso = buscarCursoId(id);
         return CursoModel.adicionarAlunoCurso(curso, aluno);
     }
 }
