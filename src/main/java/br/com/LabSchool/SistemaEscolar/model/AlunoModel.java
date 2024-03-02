@@ -19,6 +19,15 @@ public class AlunoModel {
     private String nome;
     private LocalDate dataNascimento;
 
+    public static AlunoModel buscarAlunoId(int id) throws Exception {
+        for (AlunoModel aluno : listaAlunos) {
+            if (aluno.getId() == id) {
+                return aluno;
+            }
+        }
+        throw new Exception("Aluno não encontrado");
+    }
+
     public static AlunoModel adicionarAlunos(AlunoModel aluno) {
         aluno.id = proximoId++;
         listaAlunos.add(aluno);

@@ -12,17 +12,33 @@ import java.util.ArrayList;
 public class CursoModel {
 
     private static int proximoId = 1;
-    @Getter
-    private static ArrayList<br.com.LabSchool.SistemaEscolar.model.CursoModel> listaCursos = new ArrayList<>();
+    @Getter private static ArrayList<CursoModel> listaCursos = new ArrayList<>();
 
-    @Setter(AccessLevel.NONE) private int id;
+    @Setter(AccessLevel.NONE)
+    private int id;
     private String nome;
     private String descricao;
     private int cargaHoraria;
+    private ArrayList<AlunoModel> alunosmatriculados = new ArrayList<>();
 
-    public static CursoModel adicionarCurso(br.com.LabSchool.SistemaEscolar.model.CursoModel curso) {
+    public static boolean adicionarAlunoCurso(CursoModel curso, AlunoModel aluno) throws Exception {
+        curso.alunosmatriculados.add(aluno);
+        return true;
+    }
+
+    public static CursoModel adicionarCurso(CursoModel curso) {
         curso.id = proximoId++;
         listaCursos.add(curso);
         return curso;
     }
+
+    public static CursoModel buscarCursoId(int id) throws Exception {
+        for (CursoModel curso : listaCursos) {
+            if (curso.getId() == id) {
+                return curso;
+            }
+        }
+        throw new Exception("Aluno não encontrado");
+    }
+
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("curso")
+@RequestMapping("/curso")
 public class CursoControler {
 
     private final CursoService cursoService;
@@ -17,12 +17,17 @@ public class CursoControler {
     }
 
     @GetMapping
-    public ArrayList<CursoModel> get() {
+    public ArrayList<CursoModel> verCursos() {
         return cursoService.verTodosCursos();
     }
 
     @PostMapping
-    public CursoModel post(@RequestBody CursoModel curso) throws Exception {
+    public CursoModel cadastrarCurso(@RequestBody CursoModel curso) throws Exception {
         return cursoService.cadastrarCurso(curso);
+    }
+
+    @PostMapping ("/aluno/{id}")
+    public boolean adicionaraAlunoCurso(@PathVariable Integer id, @RequestBody CursoModel curso) throws Exception {
+        return cursoService.adicionarAlunoCurso(curso.getId(),id);
     }
 }
