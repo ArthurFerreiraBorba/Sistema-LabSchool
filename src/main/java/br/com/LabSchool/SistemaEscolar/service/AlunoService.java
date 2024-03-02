@@ -1,7 +1,6 @@
 package br.com.LabSchool.SistemaEscolar.service;
 
 import br.com.LabSchool.SistemaEscolar.model.AlunoModel;
-import br.com.LabSchool.SistemaEscolar.model.ProfessorModel;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
